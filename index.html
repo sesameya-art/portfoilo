@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joshua Gandhi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#fff;font-family:"Inter Tight",sans-serif;font-weight:500;color:#fff}
+body{cursor:none}
+a{color:inherit;text-decoration:none}
+#spacer{height:5702px}
+.stage{position:fixed;inset:0;overflow:hidden}
+
+/* Hero video: 마우스 좌/우 위치로 전환 */
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#vR{visibility:hidden}
+
+/* Gallery */
+.gallery{position:absolute;left:0;top:0;width:100%;will-change:transform}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);align-items:end}
+.card{grid-column:var(--c);aspect-ratio:2/3;transform:scale(0);will-change:transform;overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover;display:block}
+
+.overlay{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+
+/* Header */
+.logo{position:absolute;left:24px;top:20px;display:flex;align-items:flex-start;gap:8px}
+.wordmark{font-size:118px;letter-spacing:-.06em;line-height:.93}
+.mark{border:1.5px solid #fff;border-radius:50%;width:40px;height:40px;display:grid;place-items:center;font-size:18px;letter-spacing:-.04em;margin-top:6px}
+.caption{position:absolute;left:24px;top:150px;width:min(360px,80vw);font-size:12px;line-height:1.4;letter-spacing:-.04em}
+nav{position:absolute;right:24px;top:24px;display:flex;gap:40px;font-size:15px;align-items:center}
+nav .about{text-transform:uppercase}
+.menu{width:22px;display:flex;flex-direction:column;gap:6px}
+.menu i{display:block;height:1.5px;background:#fff}
+.right{display:flex;gap:24px;align-items:center}
+
+/* Outro */
+.info{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;opacity:0;pointer-events:none;text-align:center}
+.info .circle{width:44px;height:44px;border:1.5px solid #fff;border-radius:50%;display:grid;place-items:center;font-size:15px;margin:0 auto 14px}
+.info .label{font-size:30px;letter-spacing:-.04em;line-height:1;text-transform:uppercase}
+.info .num{font-size:80px;letter-spacing:-.04em;line-height:1}
+.view{position:absolute;right:24px;bottom:56px;font-size:110px;letter-spacing:-.04em;line-height:1;transform:scale(0);transform-origin:100% 100%;pointer-events:none}
+.foot{position:absolute;left:24px;right:24px;bottom:20px;display:flex;justify-content:space-between;font-size:13px;letter-spacing:-.02em;text-transform:uppercase;opacity:0}
+
+/* Custom cursor */
+.cur{position:fixed;left:0;top:0;z-index:13;pointer-events:none;width:64px;height:64px;margin:-32px 0 0 -32px;border:2.5px solid #fff;border-radius:50%;display:grid;place-items:center;font-size:22px;mix-blend-mode:difference}
+
+@media(max-width:1023.98px){.wordmark{font-size:80px}.view{font-size:72px}}
+@media(max-width:639.98px){
+ body{cursor:auto}.cur{display:none}
+ .about{display:none}.wordmark{font-size:56px}.caption{top:96px}
+ .grid{grid-template-columns:repeat(2,1fr)}.card{grid-column:auto}
+ .info .label{font-size:22px}.info .num{font-size:56px}.view{font-size:56px}
+}
+@media(prefers-reduced-motion:reduce){.card{transform:scale(1)!important}}
+</style>
+</head>
+<body>
+<div id="spacer"></div>
+<div class="stage" id="stage">
+  <div class="hero">
+    <video id="vL" muted playsinline preload="auto" src="https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260625_154433_532a85d3-dabf-4265-b8bd-19ac6af31842.mp4"></video>
+    <video id="vR" muted playsinline preload="auto" src="https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260625_154401_a664f076-b971-4557-8728-40ef9ea4c49b.mp4"></video>
+  </div>
+
+  <section class="gallery" id="gallery"><div class="grid" id="grid"></div></section>
+  <div class="overlay" id="overlay"></div>
+
+  <div class="logo"><div class="wordmark">joshua</div><div class="mark">JG</div></div>
+  <p class="caption">A 24-year-old visual storyteller based in Mumbai, passionate about capturing moments that feel real, raw, and timeless. For me, photography and cinematography are more than just creative mediums. They’re a way of preserving emotions, energy, and stories that often go unnoticed.</p>
+  <nav>
+    <a class="about" href="#">About</a>
+    <div class="right">
+      <div class="menu"><i></i><i></i></div>
+      <a href="mailto:joshuagandhijg@gmail.com">[ CONTACT ]</a>
+    </div>
+  </nav>
+
+  <div class="info" id="info">
+    <div><div class="circle">8</div><div class="label">Cinematographer<br>“Joshua Gandhi”</div></div>
+    <div class="num">2026</div>
+  </div>
+  <a class="view" id="view" href="https://www.instagram.com/infocus.with.josh/" target="_blank" rel="noopener">view</a>
+  <div class="foot" id="foot"><span>Joshua Gandhi © 2026</span><span>infocus.with.josh</span></div>
+</div>
+<div class="cur" id="cur">光</div>
+
+<script>
+(function(){
+  var B='https://framerusercontent.com/images/';
+  // [id, width, 열(1~4), alt]
+  var P=[
+   ['Nqqbj529LD8p2hjFsQoyFxUmmgs',1200,4,'Silhouette dancing on the beach at sunset'],
+   ['0XWaY6grqtJCVDHre8VNCyX6i2Q',1200,1,'Sushi platter at a curated dining experience'],
+   ['ubWKf3aoQmoovag8NBWli8qwK8',1161,3,'Yoga instructor portrait in a garden courtyard'],
+   ['eXb16xwgyeDejzVDnnq2Vjcu95Q',1200,4,'Sparkling wine with grapefruit, live event moment'],
+   ['zn5Oi4HhvFrII5ir2hsWvDuXY8',1203,2,'Pancake stack with berries at Soho House Mumbai'],
+   ['oKQrYcMUP8bogMfSOG2ETJCzA',1200,1,'Kerala courtyard ambience, Karma Curated'],
+   ['obiTdVcLTl2RSWzagHOcwI0Rlds',1200,3,'Cocktail with citrus garnish, editorial beverage'],
+   ['GToHUUpp6Qib1SrhHHVnryVw',1350,4,'Quilted bag product shot for Bonafide House'],
+   ['XAcTX0l59CqyYUstcdWKxZqL4to',1203,2,'Berry parfait, food in motion'],
+   ['phaZpGU1aksRFKerMbOir8zGNQ',1203,1,'Portrait session at home']
+  ];
+  var grid=document.getElementById('grid'),cards=[];
+  P.forEach(function(p){
+    var d=document.createElement('div');d.className='card';
+    d.style.setProperty('--c',p[2]);
+    d.style.transformOrigin=(p[2]>=3?'right':'left')+' bottom';
+    d.innerHTML='<img loading="lazy" width="'+p[1]+'" height="1800" src="'+B+p[0]+'.jpg?width='+p[1]+'&height=1800" alt="'+p[3]+'">';
+    grid.appendChild(d);cards.push(d);
+  });
+
+  var $=function(i){return document.getElementById(i)};
+  var vL=$('vL'),vR=$('vR'),gal=$('gallery'),ov=$('overlay'),info=$('info'),view=$('view'),foot=$('foot'),cur=$('cur');
+  var clamp=function(v,a,b){return Math.min(b,Math.max(a,v))};
+  var seg=function(p,a,b){return clamp((p-a)/(b-a),0,1)};
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ---- 원본(Framer 번들) 로직 이식 ---- */
+  var o=vL, c=vR;                       // o: 첫 번째 파일, c: 두 번째 파일
+  var tx=innerWidth/2,ty=innerHeight/2,cx=tx,cy=ty,mx=null;
+  function show(v){
+    o.style.visibility=v===o?'visible':'hidden';
+    c.style.visibility=v===c?'visible':'hidden';
+  }
+  [o,c].forEach(function(v){v.muted=true;v.loop=false;v.playsInline=true;v.preload='auto';});
+
+  var narrow=innerWidth<1024||matchMedia('(hover: none), (pointer: coarse)').matches;
+  var last=c;
+  var scrub=function(){};
+
+  if(narrow){
+    /* 좁은 화면/터치: 두 영상이 번갈아 자동재생 */
+    show(o);
+    if(reduce){o.pause();c.pause();}
+    else{
+      o.addEventListener('ended',function(){show(c);c.currentTime=0;c.play().catch(function(){});});
+      c.addEventListener('ended',function(){show(o);o.currentTime=0;o.play().catch(function(){});});
+      c.pause();o.currentTime=0;o.play().catch(function(){});
+    }
+  }else{
+    /* 데스크톱: 항상 정지, 마우스 x로 시간만 이동 */
+    o.pause();c.pause();o.currentTime=0;c.currentTime=0;show(c);
+    scrub=function(){
+      if(mx===null)return;
+      var w=innerWidth,mid=w/2,dz=Math.max(30,w*.05),r=mx-mid;
+      if(!o.paused)o.pause(); if(!c.paused)c.pause();
+      if(Math.abs(r)<=dz){                       // 데드존: 마지막 영상을 0초로
+        if(!last.seeking&&last.currentTime!==0)last.currentTime=0;
+        return;
+      }
+      var v,a;
+      if(r<0){                                   // 마우스 왼쪽 -> 두 번째 파일
+        v=c; var e=mid-dz; a=(e-mx)/e;
+      }else{                                     // 마우스 오른쪽 -> 첫 번째 파일
+        v=o; var s2=mid+dz; a=(mx-s2)/(w-s2);
+      }
+      last=v; show(v);
+      a=Math.min(1,Math.max(0,a));
+      var d=v.duration;
+      if(!d||!isFinite(d)||v.seeking)return;
+      v.currentTime=a*d;
+    };
+  }
+
+  addEventListener('mousemove',function(e){mx=e.clientX;});
+  addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY;});
+
+  /* 커스텀 커서 + 스크럽 루프 */
+  (function loop(){
+    cx+=(tx-cx)*.18; cy+=(ty-cy)*.18;
+    cur.style.transform='translate('+cx+'px,'+cy+'px)';
+    scrub();
+    requestAnimationFrame(loop);
+  })();
+
+  /* 스크롤 연출 */
+  function update(){
+    var max=document.documentElement.scrollHeight-innerHeight;
+    var p=max>0?scrollY/max:0, vh=innerHeight;
+    var H=grid.offsetHeight;
+
+    // 갤러리: 아래에서 올라와 위로 스크롤
+    var t=seg(p,.08,.85);
+    var y=vh-t*H;
+    gal.style.transform='translateY('+y+'px)';
+
+    // 카드: 화면 하단에 들어오면 scale 0→1
+    cards.forEach(function(c){
+      var top=y+c.offsetTop, h=c.offsetHeight;
+      var s=reduce?1:clamp((vh-top)/(h*.7),0,1);
+      c.style.transform='scale('+s+')';
+    });
+
+    // 아웃트로
+    var o=seg(p,.85,.95);
+    ov.style.opacity=o*.7;
+    info.style.opacity=o;
+    view.style.transform='scale('+seg(p,.93,1)+')';
+    view.style.pointerEvents=p>.97?'auto':'none';
+    foot.style.opacity=seg(p,.95,1);
+  }
+  addEventListener('scroll',update,{passive:true});
+  addEventListener('resize',update);
+  addEventListener('load',update);
+  update();
+})();
+</script>
+</body>
+</html>
