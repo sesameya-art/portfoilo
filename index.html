@@ -71,7 +71,7 @@ nav .about{text-transform:uppercase}
   <section class="gallery" id="gallery"><div class="grid" id="grid"></div></section>
   <div class="overlay" id="overlay"></div>
 
-  <div class="logo"><div class="wordmark">KRayoon</div><div class="mark">RY</div></div>
+  <div class="logo"><div class="wordmark">Rayoon</div><div class="mark">RY</div></div>
   <p class="caption">A visual storyteller based in Korea, passionate about capturing moments that feel real, raw, and timeless. For me, photography and cinematography are more than just creative mediums. They’re a way of preserving emotions, energy, and stories that often go unnoticed.</p>
   <nav>
     <a class="about" href="#">About</a>
@@ -92,26 +92,26 @@ nav .about{text-transform:uppercase}
 
 <script>
 (function(){
-  var B='https://framerusercontent.com/images/';
+  var B='images/';
   // [id, width, 열(1~4), alt]
   var P=[
-   ['Nqqbj529LD8p2hjFsQoyFxUmmgs',1200,4,'Silhouette dancing on the beach at sunset'],
-   ['0XWaY6grqtJCVDHre8VNCyX6i2Q',1200,1,'Sushi platter at a curated dining experience'],
-   ['ubWKf3aoQmoovag8NBWli8qwK8',1161,3,'Yoga instructor portrait in a garden courtyard'],
-   ['eXb16xwgyeDejzVDnnq2Vjcu95Q',1200,4,'Sparkling wine with grapefruit, live event moment'],
-   ['zn5Oi4HhvFrII5ir2hsWvDuXY8',1203,2,'Pancake stack with berries at Soho House Mumbai'],
-   ['oKQrYcMUP8bogMfSOG2ETJCzA',1200,1,'Kerala courtyard ambience, Karma Curated'],
-   ['obiTdVcLTl2RSWzagHOcwI0Rlds',1200,3,'Cocktail with citrus garnish, editorial beverage'],
-   ['GToHUUpp6Qib1SrhHHVnryVw',1350,4,'Quilted bag product shot for Bonafide House'],
-   ['XAcTX0l59CqyYUstcdWKxZqL4to',1203,2,'Berry parfait, food in motion'],
-   ['phaZpGU1aksRFKerMbOir8zGNQ',1203,1,'Portrait session at home']
+   ['image1',1200,4,'Silhouette dancing on the beach at sunset'],
+   ['image2',1200,1,'Sushi platter at a curated dining experience'],
+   ['image3',1161,3,'Yoga instructor portrait in a garden courtyard'],
+   ['image3',1200,4,'Sparkling wine with grapefruit, live event moment'],
+   ['image3',1203,2,'Pancake stack with berries at Soho House Mumbai'],
+   ['image3',1200,1,'Kerala courtyard ambience, Karma Curated'],
+   ['image3',1200,3,'Cocktail with citrus garnish, editorial beverage'],
+   ['image3',1350,4,'Quilted bag product shot for Bonafide House'],
+   ['image3',1203,2,'Berry parfait, food in motion'],
+   ['image3',1203,1,'Portrait session at home']
   ];
   var grid=document.getElementById('grid'),cards=[];
   P.forEach(function(p){
     var d=document.createElement('div');d.className='card';
     d.style.setProperty('--c',p[2]);
     d.style.transformOrigin=(p[2]>=3?'right':'left')+' bottom';
-    d.innerHTML='<img loading="lazy" width="'+p[1]+'" height="1800" src="'+B+p[0]+'.jpg?width='+p[1]+'&height=1800" alt="'+p[3]+'">';
+    d.innerHTML='<img loading="lazy" width="'+p[1]+'" height="1800" src="'+B+p[0]+'.png?width='+p[1]+'&height=1800" alt="'+p[3]+'">';
     grid.appendChild(d);cards.push(d);
   });
 
